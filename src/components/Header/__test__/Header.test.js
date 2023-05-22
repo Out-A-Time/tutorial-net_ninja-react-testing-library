@@ -35,36 +35,31 @@ it("should render same text passed into title prop3", () => {
 
 // // WITH FINDBY
 
-// it('should render same text passed into title prop', async () => {
-//     render(
-//         <Header
-//           title="todo"
-//         />
-//     );
-//     const h1Element = await screen.findByText(/todo/i);
-//     expect(h1Element).toBeInTheDocument();
-// });
+it("should render same text passed into title prop4", async () => {
+  render(<Header title="todo" />);
+  const h1Element = await screen.findByText(/todo/i);
+  expect(h1Element).toBeInTheDocument();
+});
 
 // // WITH QUERYBY
 
-// it('should render same text passed into title prop', () => {
-//     render(
-//         <Header
-//           title="todo"
-//         />
-//     );
-//     const h1Element = screen.queryByText(/dogs/i);
-//     expect(h1Element).not.toBeInTheDocument
-// });
+it("should render same text passed into title prop5", () => {
+  render(<Header title="todo" />);
+  const h1Element = screen.queryByText(/dogs/i);
+  //I don't expect that dogs is going to be in this document. NOT.
+  expect(h1Element).not.toBeInTheDocument();
+});
 
 // // WITH GETALLBY
 
-// it('should render same text passed into title prop', () => {
-//     render(
-//         <Header
-//           title="todo"
-//         />
-//     );
-//     const h1Elements = screen.getAllByText(/todo/i);
-//     expect(h1Elements.length).toBe(1);
-// });
+it("should render same text passed into title prop6", () => {
+  render(<Header title="todo" />);
+  const h1Elements = screen.getAllByRole("heading");
+  expect(h1Elements.length).toBe(1);
+});
+
+it("should render same text passed into title prop7", () => {
+  render(<Header title="todo" />);
+  const h1Elements = screen.getAllByText(/todo/i);
+  expect(h1Elements.length).toBe(1);
+});
